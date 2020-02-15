@@ -1,0 +1,78 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #050210;
+}
+
+.krug {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+	animation: animate 1s linear infinite; 
+}
+
+@keyframes animate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes animateCircle {
+	0% {
+		transform: scale(0.1, 0.1);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1, 1);
+		opacity: 0.5;
+	}
+}
+
+.krug div {
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff); 
+}
+
+.krug div {
+	filter: blur(50px);
+}
+
+.krug::before {
+	content: '';
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right:20px;
+	bottom: 20px;
+	background: rgb(5, 2, 16);
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.krug::after {
+	content: '';
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	background: rgb(17, 7, 49);
+	border-radius: 50%;
+	z-index: 2;
+	animation: animateCircle 1s linear infinite;
+}
